@@ -12,3 +12,4 @@ function addEventoButton (){
     buttonCriarTarefa.addEventListener('click', criaTarefa)
 };
 addEventoButton();
+//comentário
