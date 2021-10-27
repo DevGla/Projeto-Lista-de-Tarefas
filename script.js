@@ -5,12 +5,20 @@ const textoTarefasValue = document.querySelector('#texto-tarefa');
 function criaTarefa (){   
     let li = document.createElement('li');
     takeOl.addEventListener('click', colocaBackGround);
+    //takeOl.addEventListener('ondblclick', colocaRisco);
     li.innerText = textoTarefasValue.value;
     takeOl.appendChild(li);
     textoTarefasValue.value = "";
 }
-function colocaBackGround(evento){
-    evento.target.classList.add('selected');
+//verificar se algum tem e tirar dele 
+//rpeciso varrer o array, se nenhum tiver coloco no evento, se algum tiver tiro dele e coloco no evento
+
+function colocaBackGround (evento){
+    if (evento.target.className !== 'selected'){
+        evento.target.classList.add('selected');
+    } else if (evento.target.className === 'selected'){
+        evento.target.classList.remove('selected');
+    }
 }
 
 function addEventoButton (){
@@ -25,4 +33,9 @@ function addEventoALista (){
     }    
 }
 addEventoALista();
-//adicionar evento ao pai 
+
+let buttonApagaTudo = document.getElementById('apaga-tudo');
+buttonApagaTudo.addEventListener('click', apagaTarefas);
+function apagaTarefas (){
+    location.reload();
+} 
