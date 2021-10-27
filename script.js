@@ -10,15 +10,13 @@ function criaTarefa (){
     takeOl.appendChild(li);
     textoTarefasValue.value = "";
 }
-//verificar se algum tem e tirar dele 
-//rpeciso varrer o array, se nenhum tiver coloco no evento, se algum tiver tiro dele e coloco no evento
 
 function colocaBackGround (evento){
-    if (evento.target.className !== 'selected'){
+    let takeSelected = document.querySelectorAll('.selected');
+        for (let i of takeSelected){            
+            i.classList.remove('selected');     
+        }
         evento.target.classList.add('selected');
-    } else if (evento.target.className === 'selected'){
-        evento.target.classList.remove('selected');
-    }
 }
 
 function addEventoButton (){
